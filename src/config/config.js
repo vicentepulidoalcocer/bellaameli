@@ -13,7 +13,7 @@ export const CLAVE_CONFIG = 'tienda_config';
 export const CONFIG_BASE = {
   // Número de WhatsApp que recibirá los pedidos.
   // Formato internacional SIN "+" ni espacios. Ej. México: 52 + 10 dígitos.
-  whatsapp: '529831241878',
+  whatsapp: '529831242878',
 
   nombreTienda: 'Bella Amelí',
   eslogan: 'NICE · Farmasi · Natura',

@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Estilos base de la tienda ---------- */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#FBF8F7] font-body text-malva-950 antialiased dark:bg-malva-950 dark:text-malva-100;
+    /* Evita el desplazamiento horizontal accidental en móvil */
+    overflow-x: hidden;
+    /* Impide que iOS agrande automáticamente el texto al girar el teléfono */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Foco visible y coherente con la paleta (accesibilidad con teclado) */
+  :focus-visible {
+    @apply outline-none ring-2 ring-rosa-500 ring-offset-2 ring-offset-white dark:ring-offset-malva-950;
+  }
+
+  /* Respeta la preferencia de "menos movimiento" del sistema */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* Botón principal reutilizable */
+  .boton-primario {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-rosa-600 px-5 py-2.5
+      text-sm font-semibold text-white shadow-suave transition
+      hover:bg-rosa-700 active:scale-[0.98]
+      disabled:cursor-not-allowed disabled:bg-malva-300 disabled:shadow-none
+      dark:disabled:bg-malva-700;
+  }
+
+  /* Botón secundario (contorno) */
+  .boton-secundario {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-rosa-300 px-5 py-2.5
+      text-sm font-semibold text-rosa-700 transition hover:bg-rosa-50
+      dark:border-rosa-800 dark:text-rosa-300 dark:hover:bg-rosa-950/40;
+  }
+
+  /* Campo de formulario */
+  .campo {
+    @apply w-full rounded-xl border border-malva-200 bg-white px-4 py-2.5 text-sm
+      placeholder:text-malva-400 focus:border-rosa-400
+      dark:border-malva-700 dark:bg-malva-900 dark:placeholder:text-malva-500;
+  }
+
+  /* Efecto "shimmer" para los skeletons de carga */
+  .skeleton {
+    @apply animate-brillo rounded-xl bg-gradient-to-r from-malva-100 via-malva-200 to-malva-100
+      bg-[length:200%_100%] dark:from-malva-800 dark:via-malva-700 dark:to-malva-800;
+  }
+}
